@@ -1,45 +1,34 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Box, Flex } from '@chakra-ui/react';
+import { GithubProfileProvider } from './components/GithubProfileContext';
+import GithubProfile from './components/GithubProfile';
+import Canvas from './components/canvas/Canvas';
+import styled from '@emotion/styled';
 
-function App() {
-  const [count, setCount] = useState(0)
+const Page = styled(Box)`
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0px;
+    animation: opening 2s ease;
+    overflow-x: hidden;
+    overflow-y: auto;
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    @keyframes opening {
+        0% { width: 0vw; height: 2vh; border-radius: 20px; overflow-y: hidden; }
+        80% { width: 20vw; height: 2vh; border-radius: 20px; overflow-y: hidden; }
+        100% { height: 100vh;  }
+    }
+`;
+
+export default function App() {
+    return (
+        <Flex justify="center" align="center" w="100vw" h="100vh">
+            <Page bgColor="#1b1c1c">
+                <GithubProfileProvider>
+                    <GithubProfile />
+                </GithubProfileProvider>
+
+                <Canvas />
+            </Page>
+        </Flex>
+    );    
 }
-
-export default App
