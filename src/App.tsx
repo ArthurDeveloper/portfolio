@@ -2,6 +2,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import { GithubProfileProvider } from './components/GithubProfileContext';
 import GithubProfile from './components/GithubProfile';
 import Canvas from './components/canvas/Canvas';
+import Skills from './components/Skills';
 import styled from '@emotion/styled';
 
 const Page = styled(Box)`
@@ -28,6 +29,7 @@ export default function App() {
                 </GithubProfileProvider>
 
                 <Canvas />
+                <Skills />
             </Page>
         </Flex>
     );    
