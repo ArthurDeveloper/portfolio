@@ -7,9 +7,13 @@ module.exports = {
   	theme: {	
 		extend: {
 			keyframes: {
+				'topbar-show-up': {
+					from: { transform: 'translateY(-200%)' },
+					to: { transform: 'translateY(0)' }
+				},
 				'text-color-change': {
-					'from': { color: '#fff' },
-					'to': { color: '#00FF82' },
+					from: { color: '#fff' },
+					to: { color: '#00FF82' },
 				},
 				'text-wiggle': {
 					'0%': { transform: 'scaleY(1)' },
@@ -18,11 +22,13 @@ module.exports = {
 					'100%': { transform: 'scaleY(1)' },
 				},
 				'fade-in-up': {
-					'from': { opacity: 0, transform: 'translateY(1.5rem)' },
-					'to': { opacity: 1, transform: 'translateY(0)' },
-				}
+					from: { opacity: 0, transform: 'translateY(1.5rem)' },
+					to: { opacity: 1, transform: 'translateY(0)' },
+				},
 			},
 			animation: {
+				'topbar-show-up': 'topbar-show-up 1.3s ease-in-out',
+
 				'text-color-change-slow': 'text-color-change 3s cubic-bezier(0,.06,.28,1.61)',
 				'text-color-change-mid': 'text-color-change 1.5s cubic-bezier(0,.06,.28,1.61)',
 				'text-color-change-fast': 'text-color-change 750ms cubic-bezier(0,.06,.28,1.61)',
